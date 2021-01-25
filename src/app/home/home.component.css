@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Average Sans'); 
+/* rel='stylesheet'> */
+h1{
+  font-family: 'Average Sans';
+  text-align: center;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.btn {
+  background-color: #FBB57F;
+  float: right;
+}
+
