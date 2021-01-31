@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Average Sans'); 
+h1{
+  font-family: 'Average Sans';
+  text-align: center;
+  font-size: 50px;
+}
+
+img {
+    display: block;
+  }
+  
+  .gallery {
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+  }
+  .gallery.pop {
+    -webkit-filter: blur(10px);
+            filter: blur(10px);
+  }
+
+  .gallery figure {
+    -ms-flex-preferred-size: 33.333%;
+        flex-basis: 33.333%;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .gallery figure img {
+    width: 100%;
+    border-radius: 10px;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  .gallery figure figcaption {
+    display: none;
+  }
+
+ 
+  
