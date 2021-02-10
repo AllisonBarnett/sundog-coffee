@@ -1,33 +1,59 @@
-<body>
+    
     <div id="main">
-    <div id="header"><h1>Find the Best Coffee For You!</h1></div>
-    
-    <form  [formGroup]="coffeeQuiz">
-<div (click)="onSelectFlavor()">
-    <p>What's your favorite flavor profile?</p>
-    <label><input type="radio" name="flavor" id="1" value="profile" />Citrusy or Fruity</label>
-    <label><input type="radio" name="flavor" id="2" value="coffee" />Roasted or Nutty</label>
-    <label><input type="radio" name="flavor" id="3" value="quiz" />Herbal or Floral</label>
-    <label><input type="radio" name="flavor" id="4" value="sundog" />Sweet or Chocolatey</label>
-</div>
-<div (click)="onSelectBrew()">
-    <p>How do you brew your coffee?</p>
-    <label><input type="radio" name="brew" id="5" value="profile" />Coffee Maker</label>
-    <label><input type="radio" name="brew" id="6" value="coffee" />Pour Over</label>
-    <label><input type="radio"  name="brew" id="7" value="quiz" />French Press</label>
-</div>
-<div (click)="onSelectRoast()">
-    <p>How do you like your coffee roasted?</p>
-    <label><input type="radio" name="roast" id="8" value="profile" />Light</label>
-    <label><input type="radio" name="roast" id="9" value="coffee" />Medium</label>
-    <label><input type="radio" name="roast" id="10" value="quiz" />Dark</label>
-</div>
-    
-    <button type="submit" value="Submit">Submit</button>
-    </form>
-
-    <p id="answer"></p>
-    <p id="answer2"></p>
-    <p id="answer3"></p>
-    <p id="answer4"></p>
-   
+        <div id="header"><h1>Find the Best Coffee For You!</h1></div>
+        <form #coffeeForm="ngForm" (ngSubmit)="onSubmit(coffeeForm)">
+          <div class="form-group">
+            <label
+              >{{ quizQuestions[0] }}
+              <div class="radio" *ngFor="let flavor of answerSetOne">
+                <label>
+                  <input type="radio" name="flavor" ngModel [value]="flavor.num" />
+                  {{ flavor.name | titlecase}}
+                </label>
+              </div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label
+              >{{ quizQuestions[1] }}
+              <div class="radio" *ngFor="let brewStyle of answerSetTwo">
+                <label>
+                  <input
+                    type="radio"
+                    name="brewStyle"
+                    ngModel
+                    [value]="brewStyle.num"
+                  />
+                  {{ brewStyle.name | titlecase }}
+                </label>
+              </div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label
+              >{{ quizQuestions[2] }}
+              <div class="radio" *ngFor="let roast of answerSetThree">
+                <label>
+                  <input type="radio" name="roast" ngModel [value]="roast.num" />
+                  {{ roast.name | titlecase }}
+                </label>
+              </div>
+            </label>
+          </div>
+          <div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+          <br><br><br>
+          <div class="col-xs-6 col-md-auto just">
+           <h2>{{coffeeName}}</h2>
+           <h3 style="vertical-align: bottom; display: inline; float: none;"
+           >{{coffeeDesc | titlecase}}</h3>
+          </div>
+          <div class="img-responsive col-xs-6 col-md-auto" >
+          <img height="340px"
+          src={{coffeeImage}}>
+          <br>
+        </div>
+        </div>
+        </form>
+      </div>
+      <br><br>

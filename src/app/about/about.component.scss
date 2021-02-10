@@ -1,0 +1,22 @@
+@import url('/assets/fonts/StalinistOne-Regular.ttf');
+$font-family: 'Hitchcut' !default;
+
+h1{
+    font-family: $font-family;
+}
+
+.img-circle {
+    border: 180%;
+}
+
+hr {
+    width: 75%;
+    border-width: 7px;
+    border-color: #FFDE59;
+  }
+
+  p {
+      text-align: left;
+  }
+
+  

@@ -1,175 +1,101 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, OnInit} from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-coffe-match',
   templateUrl: './coffe-match.component.html',
-  styleUrls: ['./coffe-match.component.css']
+  styleUrls: ['./coffe-match.component.css'],
+  providers: [TitleCasePipe]
 })
 export class CoffeMatchComponent implements OnInit {
+  
+  coffeeName = "";
+  coffeeImage = '';
+  coffeeDesc = '';
 
-  constructor() { }
+  constructor(private titleCasePipe: TitleCasePipe) { }
 
   ngOnInit(): void {
+
   }
 
-//   getElementById("form1") {
-//     //initialize score variables / values
-    
-// 	  let profile = 1;
-// 	  let coffee = 2;
-//     let quiz = 3;
-//     let sundog = 4;
-	   
-// 	  const flavor = document.querySelector('input[name = "flavor"]:checked').value;
-// 	  const brew = document.querySelector('input[name = "brew"]:checked').value;
-//     const roast = document.querySelector('input[name = "roast"]:checked').value;
-    
+ 
 
-//     //id score variables
-//     let citrus = 1;
-//     let cocoa = 2;
-//     let herb = 3;
-//     let sweet = 4;
-//     let maker = 5;
-//     let pour = 6;
-//     let press = 7;
-//     let light = 8;
-//     let medium = 9;
-//     let dark = 10;
+  brews = [
+    { name: 'Rainbow Crystal', total: 54, description: 'mango. honeydew. grapefruit', image: '/assets/images/crystal.png' },
+    { name: 'Pieces of Rainbow', total: 58, description: 'lemon. brown sugar',image: '/assets/images/rainbow.png' },
+    { name: 'Vapor', total: 59, description: 'fig. strawberry', image: '/assets/images/vapor.png' },
+    { name: 'Hexagonal', total: 62, description: 'almond. cashew. rye bread', image: '/assets/images/hexagonal.png' },
+    { name: 'Sunlight', total: 63, description: 'dark chocolate. nutmeg. molasses', image: '/assets/images/sunlight.png' },
+    { name: 'Halo', total: 66, description: 'caramel. nutmeg. cinnamon rolls', image: '/assets/images/halo.png' },
+    { name: 'Aura', total: 69, description: 'brazil nuts. cinnamon', image: '/assets/images/aura.png' },
+    { name: 'Dreamsicle', total: 70, description: 'orange. vanilla', image: '/assets/images/dreamsicle.png' },
+    { name: 'Meterology', total: 71, description: 'vanilla. cacao nibs', image: '/assets/images/meteorology.png' },
+    { name: 'Kilimanjaro', total: 74, description: 'cranberry. cherry', image: '/assets/images/kilimanjaro.png' },
+    { name: 'Parhelic Ring', total: 75, description: 'strawberry. lemon. hazelnut', image: '/assets/images/parhelic-ring.png' },
+    { name: 'Optical Phenomenon', total: 77, description: 'cacao. plum. black currant', image: '/assets/images/optical.png' },
+    { name: 'Bourbon Barrel', total: 78, description: 'whiskey. cardamom', image: '/assets/images/bourbon.png' },
+    { name: 'Nimbus', total: 82, description: 'caramel. candied orange', image: '/assets/images/nimbus.png' },
+    { name: 'Moondog', total: 86, description: 'chocolate. marshmallow', image: '/assets/images/moondog.png' },
+    { name: 'Donkey Strong', total: 89, description: 'burnt sugar. toast. tobacco', image: '/assets/images/donkey.png' },
+    { name: 'Prism', total: 117, description: 'sage. straw. tobacco', image: '/assets/images/prism.png' },
+    { name: 'Refraction of Light', total: 121, description: 'apple. lavender. lemongrass', image: '/assets/images/refraction.png' },
+    { name: 'Heirloom', total: 133, description: 'peach. plum. blueberry', image: '/assets/images/heirloom.png'},
+    { name: 'Icebow', total: 137, description: 'hibiscus. raspberry. red grape', image: '/assets/images/icebow.png' },
+    { name: 'Zenith', total: 148, description: 'jasmine. honeysuckle. maple syrup', image: '/assets/images/zenith.png' },
 
-//     calculateScore(){
-//     let x = '';
-//     if(x == "profile") { profile = profile + 1}
-// 	  if(x == "coffee") { coffee = coffee + 1}
-//     if(x == "quiz") { quiz = quiz + 1}
-//     if(x == "sundog") { sundog = sundog + 1}
-//     }
-    
-//     calculateScore(eval("citrus"));
-// 	  calculateScore(eval("cocoa"));
-//     calculateScore(eval("herb"));
-//     calculateScore(eval("sweet"));
-//     calculateScore(eval("maker"));
-//     calculateScore(eval("pour"));
-//     calculateScore(eval("press"));
-//     calculateScore(eval("light"));
-//     calculateScore(eval("medium"));
-//     calculateScore(eval("dark"));
 
-//     const scoreArray = [citrus, cocoa, herb, sweet, maker, pour, press, light, medium, dark];
 
-//     //get the max score  in the array
-//   const finalScore = Math.max.apply(Math,scoreArray);
+  ];
+  quizQuestions = [
+    'What is your favorite flavor profile?',
+    'How do you brew your coffee?',
+    'How do you like your coffee roasted?',
+  ];
+  answerSetOne = [
+    { name: 'citrusy or fruity', num: 1 },
+    { name: 'roasted or nutty', num: 5 },
+    { name: 'herbal or floral', num: 64 },
+    { name: 'sweet or chocolatey', num: 13 },
+  ];
+  answerSetTwo = [
+    { name: 'coffee maker', num: 18 },
+    { name: 'pourover', num: 22 },
+    { name: 'french press', num: 29 },
+  ];
+  answerSetThree = [
+    { name: 'light', num: 35 },
+    { name: 'medium', num: 40 },
+    { name: 'dark', num: 55 },
+  ];
+
+
+  onSubmit(form: NgForm) {
+    const candidateAnswer = this.addNums(form.form.value);
+    const chosenBrew = this.selectBrew(candidateAnswer);
+    this.coffeeName = chosenBrew?.name;
+    this.coffeeDesc = chosenBrew?.description;
+    this.coffeeImage = chosenBrew?.image;
+
+    console.log(chosenBrew?.name);
+
+    console.log(`\nYour Answer: ${candidateAnswer}`);
   
-//    //figure out which score is the max score by identifying its index number
-// 	for(i=0; i<scoreArray.length; i++) {
-//     if(scoreArray[i]==maxscore) {
-//     highest = i;
-//     }
-//     }
-
-//     //object holding scores and coffees	
-// const finalScores = [{index:16, feedback: "API url from Firebase"},
-// {index:1, feedback: ""},
-// {index:2, feedback: ""}];
-
-// //loop to match index to score and reply with feedback
-// for(i=0;i<finalScores.length; i++) {
-//   if(highest == finalScores[i].index) {
-//   document.getElementById("answer4").innerHTML = finalScores[i].feedback;
-//   }
-//   }
-
-//   return false; // required to not refresh the page; just leave this here
-// }// end the submit function
-
-
-
-id: number;
-coffeeQuiz: FormGroup;
-
-onSelectFlavor(id){
-  console.log(this.coffeeQuiz.value);
-  //register the number assigned to the id. 
-}
-
-onSelectBrew(){
-//register id number. Possibly add it to the number from onSelectFlavor?
-}
-
-onSelectRoast(){
-//register id number. 
-}
-
-//Add all 3 numbers together, assign the final sum to a variable
-
-//Then loop through an object that contains the coffees and matching numbers to match it with the
-//final number from the quiz
-
-//Display the corresponding image from firebase API
-
-
-
-
-
-//sally ride graded assignment quiz form with arrays
-
-const brew = [
-  {name: 'sunlight', total: 18},
-  {name: 'aura', total: 14},
-  {name: 'halo', total: 17},
-  {name: 'icebow', total: 20},
-  {name: 'nimbus', total: 19}
-];
-
-const quizQuestions = [
-  'What is your favorite flavor profile?',
-  'How do you brew your coffee?',
-  'How do you like your coffee roasted?'
-];
-  
-const answerSetOne = [
-  {name: 'citrusy or fruity', num: 1}, 
-  {name: 'roasted or nutty', num: 2}, 
-  {name: 'herbal or floral', num: 3}, 
-  {name: 'sweet or chocolatey', num: 4}
-];
-
-const answerSetTwo = [
-  {name: 'coffee maker', num: 5}, 
-  {name: 'pourover', num: 6}, 
-  {name: 'french press', num: 7}
-];
-
-const answerSetThree = [
-  {name: 'light', num: 8}, 
-  {name: 'medium', num: 9 }, 
-  {name: 'dark', num: 10}
-];
-
-let response;
-
-let candidateAnswer = 0;
-
-let choosenBrew;
-
-for (let i = 0; i < quizQuestions.length; i++) {
-  console.log(quizQuestions[i]);
-  response = input.question("Enter your answer: ");
-  candidateAnswer += Number(response);
-};
-
-for (let brew of brews) {
-  if (brew['total'] === candidateAnswer) {
-    choosenBrew = brew;
-    break;
   }
-};
-
-console.log(`Your brew is ${choosenBrew['name']}`);
-console.log(`\nYour Answer: ${candidateAnswer}`);
   
+  addNums(value: any) {
+    return value['brewStyle'] + value['flavor'] + value['roast'];
+  }
+  selectBrew(answer: any) {
+    for (let brew of this.brews) {
+      if (brew['total'] === answer) {
+        return brew;
+      }
+    }
+    return;
+  }
+
 
 
 }

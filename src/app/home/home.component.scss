@@ -1,0 +1,32 @@
+// @import url('https://fonts.googleapis.com/css?family=Average Sans'); 
+// $font-family: 'Average Sans' !default;
+
+// h1{
+//   font-family: $font-family;
+//   text-align: center;
+// }
+
+//https://medium.com/@aditya_tyagi/import-fonts-in-an-angular-app-the-easy-right-way-ae9e99cab551
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: 20%;
+}
+
+.btn {
+  background-color: #FBB57F; 
+}
+
+hr {
+  width: 75%;
+  border-width: 7px;
+  border-color: #FFDE59;
+}
+
+.mb-1 {
+  margin-bottom: 13px;
+}
+

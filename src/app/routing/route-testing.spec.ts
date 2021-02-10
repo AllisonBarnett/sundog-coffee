@@ -12,16 +12,18 @@ import{
     BlogComponent,
     CollectionComponent,
     CoffeMatchComponent
-} from "./router"
+} from "./app.module";
+
+
 
 describe('Router: App', () =>{
     let location: Location;
     let router: Router;
     let fixture;
 
-    beforeEach() => {
+    beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [RouterTestingModule.withRoutes(routes)];
+            imports: [RouterTestingModule.withRoutes(routes)],
             declarations: [
                 HeaderComponent,
                 HomeComponent,
@@ -37,10 +39,27 @@ describe('Router: App', () =>{
         router.initialNavigation();
     };
 
-    it('navigate to "", redirects you to /home', fakeAsync(()=>{
+    it("fakeAsync works", fakeAsync(() => {
+        let promise = new Promise(resolve => {
+          setTimeout(resolve, 10);
+        });
+        let done = false;
+        promise.then(() => (done = true));
+        tick();
+        expect(done).toBeTruthy();
+      }));
+
+    it('navigates to "", redirects you to /home', fakeAsync(()=>{
         router.navigate(['']);
         tick();
         expect(location.path()).toBe('/home');
     }));
-    // https://codecraft.tv/courses/angular/unit-testing/routing/
+
+
+    it('navigates to "about" takes you to /about', fakeAsync(()=> {
+        router.navigate(['about']);
+        tick();
+        expect (location.path()).toBe('/about');
+    }));
 });
+
