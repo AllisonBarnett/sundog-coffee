@@ -1,9 +1,22 @@
-@import url('/assets/fonts/StalinistOne-Regular.ttf');
-$font-family: 'Hitchcut' !default;
+@font-face {
+    font-family: Hitchcut;
+    src: url(/assets/fonts/Hitchcut-Regular.ttf) format("opentype");
+  }
 
-h1{
-    font-family: $font-family;
-}
+  @font-face {
+    font-family: Fredoka;
+    src: url(/assets/fonts/FredokaOne-Regular.ttf) format("opentype");
+  }
+
+  h1{
+      font-family: Hitchcut;
+      color: #FBB57F;
+  }
+
+  h3 {
+      font-family: Fredoka;
+      color: #767769;
+  }
 
 .img-circle {
     border: 180%;

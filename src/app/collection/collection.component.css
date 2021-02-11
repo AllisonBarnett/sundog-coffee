@@ -1,8 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Average Sans'); 
+@font-face {
+  font-family: Hitchcut;
+  src: url(/assets/fonts/Hitchcut-Regular.ttf) format("opentype");
+}
+
 h1{
-  font-family: 'Average Sans';
-  text-align: center;
-  font-size: 50px;
+    font-family: Hitchcut;
+    color: #FBB57F;
+    text-align: center;
+}
+
+hr {
+  width: 75%;
+  border-width: 7px;
+  border-color: #FFDE59;
 }
 
 img {

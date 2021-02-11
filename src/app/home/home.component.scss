@@ -1,12 +1,24 @@
-// @import url('https://fonts.googleapis.com/css?family=Average Sans'); 
-// $font-family: 'Average Sans' !default;
+@font-face {
+  font-family: Hitchcut;
+  src: url(/assets/fonts/Hitchcut-Regular.ttf) format("opentype");
+}
 
-// h1{
-//   font-family: $font-family;
-//   text-align: center;
-// }
+@font-face {
+  font-family: Fredoka;
+  src: url(/assets/fonts/FredokaOne-Regular.ttf) format("opentype");
+}
 
-//https://medium.com/@aditya_tyagi/import-fonts-in-an-angular-app-the-easy-right-way-ae9e99cab551
+
+h1{
+  font-family: Hitchcut;
+  color: #FBB57F;
+  text-align: center;
+}
+
+h3 {
+font-family: Fredoka;
+color: #767769;
+}
 
 .logo {
     display: block;
@@ -29,4 +41,10 @@ hr {
 .mb-1 {
   margin-bottom: 13px;
 }
+
+.jumbotron {
+  background-image: url('/assets/images/home-image.png');
+}
+
+
 

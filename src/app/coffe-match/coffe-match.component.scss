@@ -1,0 +1,50 @@
+@font-face {
+  font-family: Hitchcut;
+  src: url(/assets/fonts/Hitchcut-Regular.ttf) format("opentype");
+}
+  @font-face {
+  font-family: Fredoka;
+  src: url(/assets/fonts/FredokaOne-Regular.ttf) format("opentype");
+}
+
+h1{
+    font-family: Hitchcut;
+    color: #FBB57F;
+    text-align: center;
+}
+
+h3 {
+  font-family: Fredoka;
+  color: #767769;
+}
+
+body{
+  background-image: url("/assets/image/home-image.png");
+}
+
+#main {
+    width: 60%;
+    margin: auto;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    }
+    
+    #header {
+    margin-top: 0;
+    padding: 5px;
+    height: 150px;
+    }
+    
+    label {
+    width: 150px;
+    display: inline-block;
+    }
+    
+    button {
+    display: block;
+    margin-top: 20px;
+    
+    }
+
+    

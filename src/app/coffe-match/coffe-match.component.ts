@@ -5,7 +5,7 @@ import { TitleCasePipe } from '@angular/common';
 @Component({
   selector: 'app-coffe-match',
   templateUrl: './coffe-match.component.html',
-  styleUrls: ['./coffe-match.component.css'],
+  styleUrls: ['./coffe-match.component.scss'],
   providers: [TitleCasePipe]
 })
 export class CoffeMatchComponent implements OnInit {
@@ -29,6 +29,7 @@ export class CoffeMatchComponent implements OnInit {
     { name: 'Hexagonal', total: 62, description: 'almond. cashew. rye bread', image: '/assets/images/hexagonal.png' },
     { name: 'Sunlight', total: 63, description: 'dark chocolate. nutmeg. molasses', image: '/assets/images/sunlight.png' },
     { name: 'Halo', total: 66, description: 'caramel. nutmeg. cinnamon rolls', image: '/assets/images/halo.png' },
+    { name: 'Lunar Arc', total: 67, description: 'pecan. burnt sugar. walnut', image: '/assets/images/lunar-arc.png' },
     { name: 'Aura', total: 69, description: 'brazil nuts. cinnamon', image: '/assets/images/aura.png' },
     { name: 'Dreamsicle', total: 70, description: 'orange. vanilla', image: '/assets/images/dreamsicle.png' },
     { name: 'Meterology', total: 71, description: 'vanilla. cacao nibs', image: '/assets/images/meteorology.png' },
@@ -41,6 +42,8 @@ export class CoffeMatchComponent implements OnInit {
     { name: 'Donkey Strong', total: 89, description: 'burnt sugar. toast. tobacco', image: '/assets/images/donkey.png' },
     { name: 'Prism', total: 117, description: 'sage. straw. tobacco', image: '/assets/images/prism.png' },
     { name: 'Refraction of Light', total: 121, description: 'apple. lavender. lemongrass', image: '/assets/images/refraction.png' },
+    { name: 'Paraselene', total: 122, description: 'green tea. mint. spring grass', image: '/assets/images/paraselene.png' },
+    { name: 'April Showers', total: 128, description: 'rose. magnolia. clemetine', image: '/assets/images/april.png' },
     { name: 'Heirloom', total: 133, description: 'peach. plum. blueberry', image: '/assets/images/heirloom.png'},
     { name: 'Icebow', total: 137, description: 'hibiscus. raspberry. red grape', image: '/assets/images/icebow.png' },
     { name: 'Zenith', total: 148, description: 'jasmine. honeysuckle. maple syrup', image: '/assets/images/zenith.png' },
